@@ -15,7 +15,7 @@
 static size_t	count_words(const char *s, char c)
 {
 	size_t	count;
-	int	in_word;
+	int		in_word;
 
 	count = 0;
 	in_word = 0;
@@ -54,7 +54,7 @@ static void	free_words(char **words, size_t i)
 	free(words);
 }
 
-static char	**ft_fill_split(char const *s, char c, char **split, size_t word_count)
+static char	**ft_fill_split(char const *s, char c, char **split, size_t word_c)
 {
 	size_t	i;
 	size_t	j;
@@ -62,7 +62,7 @@ static char	**ft_fill_split(char const *s, char c, char **split, size_t word_cou
 
 	i = 0;
 	j = 0;
-	while (s[i] && j < word_count)
+	while (s[i] && j < word_c)
 	{
 		while (s[i] && s[i] == c)
 			i++;

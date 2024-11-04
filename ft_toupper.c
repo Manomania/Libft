@@ -6,7 +6,7 @@
 /*   By: maximart <maximart@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:51:48 by maximart          #+#    #+#             */
-/*   Updated: 2024/11/04 13:43:35 by maximart         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:51:42 by maximart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_toupper(int c)
 {
-    if (c >= 'a' && c <= 'z')
-      return (c - 32);
-    return (c);
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
 }

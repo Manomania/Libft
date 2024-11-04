@@ -6,15 +6,15 @@
 /*   By: maximart <maximart@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:51:48 by maximart          #+#    #+#             */
-/*   Updated: 2024/11/04 13:43:35 by maximart         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:45:03 by maximart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-    if (c >= '0' && c <= '9')
-        return (1);
-    return (0);
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }
