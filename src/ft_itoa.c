@@ -1,38 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maximart <maximart@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:51:48 by maximart          #+#    #+#             */
-/*   Updated: 2024/11/04 16:38:11 by maximart         ###   ########.fr       */
+/*   Updated: 2024/11/04 13:43:35 by maximart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+static int	num_len(long int n)
 {
-	int	i;
-	int	sign;
-	int	result;
+	int	len;
 
-	i = 0;
-	sign = 1;
-	result = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	len = 0;
+	if (n <= 0)
+		len = 1;
+	while (n != 0)
 	{
-		if (str[i] == '-')
-			sign -= 1;
-		i++;
+		n /= 10;
+		len++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	return (len);
+}
+
+char	*ft_itoa(int n)
+{
+	long int	len;
+	long int	nb;
+	unsigned char	*result;
+
+	nb = n;
+	len = num_len(n);
+	result = malloc(sizeof(char) * (len + 1));
+	if (!result)
+		return (NULL);
+	result[len] = '\0';
+	len--;
+	if (nb < 0)
 	{
-		result = (result * 10) + (str[i] - '0');
-		i++;
+		result[0] = '-';
+		nb = -nb;
 	}
-	return (result * sign);
+	while (len >= 0 && result[len] != '-')
+	{
+		result[len] = ((nb % 10) + '0');
+		nb /= 10;
+		len--;
+	}
+	return ((char *)result);
 }

@@ -1,55 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maximart <maximart@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:51:48 by maximart          #+#    #+#             */
-/*   Updated: 2024/11/04 13:43:35 by maximart         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:38:11 by maximart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	num_len(long n)
+int	ft_atoi(const char *str)
 {
-	int	len;
+	int	i;
+	int	sign;
+	long int	result;
 
-	len = 0;
-	if (n <= 0)
-		len = 1;
-	while (n != 0)
+	i = 0;
+	sign = 1;
+	result = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		n /= 10;
-		len++;
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
 	}
-	return (len);
-}
-
-char	*ft_itoa(int n)
-{
-	long	len;
-	long	nb;
-	char	*result;
-
-	nb = n;
-	len = num_len(n);
-	result = malloc(sizeof(char) * (len + 1));
-	if (!result)
-		return (NULL);
-	result[len] = '\0';
-	len--;
-	if (nb < 0)
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		result[0] = '-';
-		nb = -nb;
+		result = (result * 10) + (str[i] - '0');
+		i++;
 	}
-	while (len >= 0 && result[len] != '-')
-	{
-		result[len] = (nb % 10) + '0';
-		nb /= 10;
-		len--;
-	}
-	return (result);
+	return (result * sign);
 }
