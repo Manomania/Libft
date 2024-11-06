@@ -29,8 +29,8 @@ static int	num_len(long int n)
 
 char	*ft_itoa(int n)
 {
-	long int	len;
-	long int	nb;
+	long int		len;
+	long int		nb;
 	unsigned char	*result;
 
 	nb = n;
