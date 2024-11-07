@@ -53,18 +53,18 @@ OBJ_BONUS			= 	$(SRC_BONUS:%.c=%.o)
 
 # $< = SOURCE FILE && $@ = OUTPUT FILE
 %.o: 					%.c
-							$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
+							@$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
 
 all: 					$(NAME)
 
 $(NAME):				$(OBJ)
 							$(AR) $@ $^
 
-bonus:					$(OBJ_BONUS)
-							$(AR) $(NAME) $(OBJ_BONUS)
+bonus:					$(OBJ) $(OBJ_BONUS)
+							@$(AR) $(NAME) $(OBJ) $(OBJ_BONUS)
 
 clean:
-							rm -rf $(OBJ_DIR) $(OBJ_BONUS_DIR)
+							$(RM) $(OBJ) $(OBJ_BONUS)
 
 fclean: 				clean
 							$(RM) $(NAME)
