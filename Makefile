@@ -1,13 +1,9 @@
 NAME 				= 	libft.a
-SRC_DIR				=	src/
-OBJ_DIR				=	obj/
-OBJ_BONUS_DIR		=	obj_bonus/
-INC_DIR				=	include
+INC_DIR				=	.
 CC 					= 	gcc
 CFLAGS 				= 	-Wall -Wextra -Werror
 AR					=	ar rcs
 RM					=	rm -f
-
 SRC 				=	ft_atoi.c \
 						ft_bzero.c \
 						ft_calloc.c \
@@ -52,27 +48,17 @@ SRC_BONUS			=	ft_lstadd_back.c \
 						ft_lstnew.c \
 						ft_lstsize.c
 
-OBJ 				= 	$(SRC:%.c=$(OBJ_DIR)%.o)
-OBJ_BONUS			= 	$(SRC_BONUS:%.c=$(OBJ_BONUS_DIR)%.o)
+OBJ 				= 	$(SRC:%.c=%.o)
+OBJ_BONUS			= 	$(SRC_BONUS:%.c=%.o)
 
 # $< = SOURCE FILE && $@ = OUTPUT FILE
-$(OBJ_DIR)%.o: 			$(SRC_DIR)%.c | $(OBJ_DIR)
-							$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
-
-$(OBJ_BONUS_DIR)%.o: 	$(SRC_DIR)%.c | $(OBJ_BONUS_DIR)
+%.o: 					%.c
 							$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
 
 all: 					$(NAME)
 
 $(NAME):				$(OBJ)
 							$(AR) $@ $^
-
-$(OBJ_DIR):
-							mkdir -p $(OBJ_DIR)
-
-$(OBJ_BONUS_DIR):
-							mkdir -p $(OBJ_BONUS_DIR)
-
 
 bonus:					$(OBJ_BONUS)
 							$(AR) $(NAME) $(OBJ_BONUS)
