@@ -21,16 +21,16 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	modified_lst = NULL;
 	while (lst)
 	{
-        new_content = f(lst->content);
-        if (!new_content)
-        {
-          ft_lstclear(&modified_lst, del);
-          return (NULL);
-        }
+		new_content = f(lst->content);
+		if (!new_content)
+		{
+			ft_lstclear(&modified_lst, del);
+			return (NULL);
+		}
 		modified_new = ft_lstnew(new_content);
 		if (!modified_new)
 		{
-            del(new_content);
+			del(new_content);
 			ft_lstclear(&modified_lst, del);
 			return (NULL);
 		}
