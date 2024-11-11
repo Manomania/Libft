@@ -1,5 +1,7 @@
 NAME 				= 	libft.a
+HEAD				=	libft.h
 INC_DIR				=	.
+OBJ_DIR				=	obj/
 CC 					= 	gcc
 CFLAGS 				= 	-Wall -Wextra -Werror
 AR					=	ar rcs
@@ -48,26 +50,31 @@ SRC_BONUS			=	ft_lstadd_back.c \
 						ft_lstnew.c \
 						ft_lstsize.c
 
-OBJ 				= 	$(SRC:%.c=%.o)
-OBJ_BONUS			= 	$(SRC_BONUS:%.c=%.o)
+OBJ 				= 	$(SRC:%.c=$(OBJ_DIR)%.o)
+OBJ_BONUS			= 	$(SRC_BONUS:%.c=$(OBJ_DIR)%.o)
 
 # $< = SOURCE FILE && $@ = OUTPUT FILE
-%.o: 					%.c
+$(OBJ_DIR)%.o: 					%.c $(HEAD) | $(OBJ_DIR)
 							@$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
 
 all: 					$(NAME)
 
-$(NAME):				$(OBJ)
+$(NAME):				$(OBJ) Makefile
 							$(AR) $@ $^
+
+$(OBJ_DIR):
+							@mkdir -p $(OBJ_DIR)
 
 bonus:					$(OBJ) $(OBJ_BONUS)
 							@$(AR) $(NAME) $(OBJ) $(OBJ_BONUS)
 
 clean:
-							$(RM) $(OBJ) $(OBJ_BONUS)
+							@rm -rf $(OBJ_DIR)
+							@echo "Deleting repository 'obj'"
 
 fclean: 				clean
-							$(RM) $(NAME)
+							@$(RM) $(NAME)
+							@echo "Deleting libft.a"
 
 re: 					fclean all
 
