@@ -27,21 +27,17 @@ Implémentation d'opérations sur des listes chaînées pour une gestion plus fl
 ---
 ## Ressources
 
-- **Documentation des fonctions standard C**
-  [man7.org](https://man7.org/linux/man-pages/) : Une ressource incontournable pour comprendre les fonctions standard de la libc.
+- [man7.org](https://man7.org/linux/man-pages/) : Une ressource incontournable pour comprendre les fonctions standard de la libc.
 
-- **Norminette**
-  [Norminette GitHub](https://github.com/42School/norminette) : Outil pour vérifier la conformité de mon code avec les normes 42. Pour le travail à la maison.
+- [Norminette GitHub](https://github.com/42School/norminette) : Outil pour vérifier la conformité de mon code avec les normes 42. Pour le travail à la maison.
 
-- **Valgrind**
-  [Valgrind](https://valgrind.org/) : Pour identifier les fuites mémoire et améliorer la gestion des allocations dynamiques.
+- [Valgrind](https://valgrind.org/) : Pour identifier les fuites mémoire et améliorer la gestion des allocations dynamiques.
 
 - **Tests automatiques pour la Libft**
   - [libft-unit-test](https://github.com/alelievr/libft-unit-test) : Une suite de tests complète pour valider les fonctions de la Libft.
   - [libftTester](https://github.com/Tripouille/libftTester) : Une autre excellente option pour tester la robustesse du code.
 
-- **Guide Markdown**
-  [GitHub Flavored Markdown](https://github.github.com/gfm/) : Pour rédiger et structurer ce `README.md`.
+- [GitHub Flavored Markdown](https://github.github.com/gfm/) : Pour rédiger et structurer ce `README.md`.
 
 ## Auteur
 
